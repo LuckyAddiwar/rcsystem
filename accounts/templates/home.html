@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Assuming you have a styles.css file -->
+</head>
+<body>
+    <h1>All Products</h1>
+    <div class="product-container">
+        {% for product in products %}
+            <div class="product-card">
+                <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}" class="product-image">
+                <h2>{{ product.product_name }}</h2>
+                <p>Brand: {{ product.brand_name }}</p>
+                <p>Price: ${{ product.offer_price }}</p>
+                <p>Original Price: ${{ product.original_price }}</p>
+                <p>Deal: {{ product.deal_percentage }}% off</p>
+                <p>Category: {{ product.category }}</p>
+                <p>Rating: {{ product.rating }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
